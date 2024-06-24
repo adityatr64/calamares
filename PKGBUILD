@@ -21,7 +21,7 @@ sha256sums=('SKIP')
 prepare() {
 	cd calamares
 	tar -xf calamares-${pkgver}-stable.tar.gz
-	mv calamares-3.2.xx-stable ${srcdir}/calamares-${pkgver}
+	mv calamares-0.1.xx-stable ${srcdir}/calamares-${pkgver}
 	cd ${srcdir}/calamares-${pkgver}
 	sed -i -e 's/"Install configuration files" OFF/"Install configuration files" ON/' CMakeLists.txt
 
