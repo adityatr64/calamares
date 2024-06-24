@@ -1,31 +1,27 @@
-# Maintainer:  David Spink <yorper_protonmail.com>
-# Contributor: Philip Müller <philm_manjaro.org>
-
 pkgname=calamares
-pkgver=0.1
+pkgver=3.2.20
 pkgrel=0.1
 pkgdesc='Distribution-independent installer framework'
 arch=('x86_64')
 license=(GPL)
-license=('LGPL')
 url="https://github.com/adityatr64/calamares/"
-source+=("git+$url.git")
-
+license=('LGPL')
 depends=('kconfig' 'kcoreaddons' 'kiconthemes' 'ki18n' 'kio' 'solid' 'yaml-cpp' 'kpmcore' 'mkinitcpio-openswap'
          'boost-libs' 'hwinfo' 'qt5-svg' 'polkit-qt5' 'gtk-update-icon-cache' 'plasma-framework5'
-         'qt5-xmlpatterns' 'squashfs-tools')
+         'qt5-xmlpatterns' 'squashfs-tools') # 'pythonqt>=3.2')
 makedepends=('extra-cmake-modules' 'qt5-tools' 'qt5-translations' 'git' 'boost')
 backup=('usr/share/calamares/modules/bootloader.conf'
         'usr/share/calamares/modules/displaymanager.conf'
         'usr/share/calamares/modules/initcpio.conf'
         'usr/share/calamares/modules/unpackfs.conf')
 
-# sha256sums=('SKIP')
+source+=("git+$url.git")
+sha256sums=('SKIP')
 
 prepare() {
 	cd calamares
-	tar -xf calamares-${pkgver}-unstable.tar.gz
-	mv calamares-0.1.xx-unstable ${srcdir}/calamares-${pkgver}
+	tar -xf calamares-${pkgver}-stable.tar.gz
+	mv calamares-3.2.xx-stable ${srcdir}/calamares-${pkgver}
 	cd ${srcdir}/calamares-${pkgver}
 	sed -i -e 's/"Install configuration files" OFF/"Install configuration files" ON/' CMakeLists.txt
 
