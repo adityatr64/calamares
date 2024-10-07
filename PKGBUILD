@@ -16,7 +16,6 @@ backup=('usr/share/calamares/modules/bootloader.conf'
         'usr/share/calamares/modules/unpackfs.conf')
 
 source+=("git+$url.git")
-sha256sums=('SKIP')
 
 prepare() {
 	cd calamares
